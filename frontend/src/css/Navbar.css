@@ -1,0 +1,80 @@
+.navbar {
+  background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Brand */
+
+.navbar-brand a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand span {
+  color: #f59e0b; /* Texas accent color */
+}
+
+/* Links */
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  margin-right: 2rem;
+}
+
+.nav-link {
+  color: #f59e0b !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Underline hover animation */
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #f59e0b;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    gap: 1rem;
+  }
+
+  .navbar-brand a {
+    font-size: 1.3rem;
+  }
+}

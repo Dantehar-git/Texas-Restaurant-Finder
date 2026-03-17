@@ -12,3 +12,15 @@ export async function getRestaurants(search = "", city = "Dallas") {
     return [];
   }
 }
+
+export async function getRestaurantDetails(placeId) {
+  const res = await fetch(
+    `http://localhost:3000/restaurant/${encodeURIComponent(placeId)}`,
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch restaurant details");
+  }
+
+  return res.json();
+}

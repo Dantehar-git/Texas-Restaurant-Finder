@@ -21,6 +21,12 @@
   transform: translateY(-5px);
 }
 
+.restaurant-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .restaurant-poster {
   position: relative;
   width: 100%;

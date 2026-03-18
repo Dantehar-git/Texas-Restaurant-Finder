@@ -8,7 +8,7 @@
 
 A full-stack React application for discovering restaurants across major Texas cities, enriched with dynamic imagery, map visualization, and detailed place data.
 
-👉 **Live Demo:** https://your-app-name.vercel.app  
+👉 **Live Demo:** https://texas-restaurant-finder.vercel.app
 👉 **GitHub Repo:** https://github.com/Dantehar-git
 
 ---

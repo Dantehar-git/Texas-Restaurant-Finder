@@ -7,7 +7,26 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://your-vercel-app.vercel.app",
+];
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  }),
+);
+
+app.get("/", (req, res) => {
+  res.send("Texas Restaurant Finder API is running");
+});
 
 const GEO_BASE = "https://api.geoapify.com/v2/places";
 const GEO_DETAILS_BASE = "https://api.geoapify.com/v2/place-details";
@@ -51,6 +70,10 @@ const FALLBACK_IMAGES = {
   restaurant:
     "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
 };
+
+if (!GEO_KEY || !UNSPLASH_KEY) {
+  console.error("Missing API keys");
+}
 
 function getCachedValue(cache, key) {
   const entry = cache[key];
@@ -450,6 +473,8 @@ app.get("/restaurant/:placeId", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });

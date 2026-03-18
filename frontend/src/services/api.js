@@ -1,7 +1,9 @@
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+
 export async function getRestaurants(search = "", city = "Dallas") {
   try {
     const response = await fetch(
-      `http://localhost:3000/restaurants?query=${encodeURIComponent(search)}&city=${encodeURIComponent(city)}`,
+      `${API_BASE}/restaurants?query=${encodeURIComponent(search)}&city=${encodeURIComponent(city)}`,
     );
 
     if (!response.ok) throw new Error(`Server error: ${response.status}`);
@@ -15,7 +17,7 @@ export async function getRestaurants(search = "", city = "Dallas") {
 
 export async function getRestaurantDetails(placeId) {
   const res = await fetch(
-    `http://localhost:3000/restaurant/${encodeURIComponent(placeId)}`,
+    `${API_BASE}/restaurant/${encodeURIComponent(placeId)}`,
   );
 
   if (!res.ok) {

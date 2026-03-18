@@ -2,7 +2,7 @@ import "../css/Favorites.css";
 import { useRestaurantContext } from "../contexts/RestaurantContext";
 import RestaurantCard from "../components/RestaurantCard";
 
-function Favorite() {
+function Favorites() {
   const { favorites } = useRestaurantContext();
 
   if (favorites.length) {
@@ -32,4 +32,4 @@ function Favorite() {
   );
 }
 
-export default Favorite;
+export default Favorites;

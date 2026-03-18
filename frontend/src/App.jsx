@@ -8,21 +8,16 @@ import { RestaurantProvider } from "./contexts/RestaurantContext";
 
 function App() {
   return (
-    <>
-      <RestaurantProvider>
-        <NavBar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/favorites" element={<Favorite />} />
-            <Route
-              path="/restaurant/:placeId"
-              element={<RestaurantDetails />}
-            />
-          </Routes>
-        </main>
-      </RestaurantProvider>
-    </>
+    <RestaurantProvider>
+      <NavBar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorite />} />
+          <Route path="/restaurant/:placeId" element={<RestaurantDetails />} />
+        </Routes>
+      </main>
+    </RestaurantProvider>
   );
 }
 

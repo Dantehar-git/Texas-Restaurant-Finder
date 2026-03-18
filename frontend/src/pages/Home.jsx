@@ -3,7 +3,7 @@ import { getRestaurants } from "../services/api";
 import RestaurantMap from "../components/RestaurantMap";
 import "../css/Home.css";
 import RestaurantCard from "../components/RestaurantCard";
-import { formatCuisine } from "../utils/formatCuisines";
+import { formatCuisine } from "../utils/formatCuisine";
 
 export default function Home() {
   const [city, setCity] = useState("Dallas");
@@ -17,7 +17,11 @@ export default function Home() {
 
   const filteredRestaurants = restaurants.filter((r) => {
     if (!category) return true;
-    return r.properties?.catering?.cuisine === category;
+    const cuisineList = (r.properties?.catering?.cuisine || "")
+      .split(";")
+      .map((c) => c.trim());
+
+    return cuisineList.includes(category);
   });
 
   const sortedRestaurants = [...filteredRestaurants].sort((a, b) => {

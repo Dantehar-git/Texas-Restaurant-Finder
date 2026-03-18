@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getRestaurantDetails } from "../services/api";
 import RestaurantLocationMap from "../components/RestaurantLocationMap";
 import "../css/RestaurantDetails.css";
-import { formatCuisine } from "../utils/formatCuisines";
+import { formatCuisine } from "../utils/formatCuisine";
 
 function RestaurantDetails() {
   const { placeId } = useParams();
